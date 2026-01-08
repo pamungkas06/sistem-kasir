@@ -1,0 +1,26 @@
+# Render Blueprint untuk auto-deploy
+services:
+  - type: web
+    name: sistem-kasir
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DB_HOST
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+
+databases:
+  - name: kasir-db
+    plan: free
+    databaseName: kasir_db
+    user: kasir_user

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#4CAF50">
+    <title>Sistem Kasir</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Sistem Kasir</h1>
+            <div class="date-time" id="dateTime"></div>
+        </header>
+
+        <!-- Menu Selection -->
+        <section class="menu-section">
+            <h2>Pilih Menu</h2>
+            <div class="menu-categories" id="menuCategories"></div>
+            <div class="menu-grid" id="menuGrid"></div>
+        </section>
+
+        <!-- Cart Section -->
+        <section class="cart-section">
+            <h2>Keranjang</h2>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Keranjang kosong</p>
+            </div>
+            <div class="cart-total">
+                <div class="total-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">Rp 0</span>
+                </div>
+                <div class="total-row">
+                    <span>Total:</span>
+                    <span id="total" class="total-amount">Rp 0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <section class="action-buttons">
+            <button class="btn btn-secondary" id="clearBtn">Hapus Semua</button>
+            <button class="btn btn-primary" id="checkoutBtn">Bayar & Print</button>
+        </section>
+
+        <!-- Settings Button -->
+        <button class="btn-settings" id="settingsBtn">⚙️</button>
+        
+        <!-- Report Button -->
+        <a href="laporan.html" class="btn-settings" style="bottom: 80px; text-decoration: none; display: flex; align-items: center; justify-content: center; font-size: 16px;">📊</a>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Pengaturan</h2>
+            <div class="settings-form">
+                <label>
+                    Nama Toko:
+                    <input type="text" id="storeName" placeholder="Nama Toko Anda">
+                </label>
+                <label>
+                    Alamat:
+                    <input type="text" id="storeAddress" placeholder="Alamat Toko">
+                </label>
+                <label>
+                    No. Telepon:
+                    <input type="text" id="storePhone" placeholder="081234567890">
+                </label>
+                <button class="btn btn-primary" id="saveSettingsBtn">Simpan Pengaturan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print Receipt (Hidden) -->
+    <div id="printArea" class="print-area"></div>
+
+    <script src="menu-data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
